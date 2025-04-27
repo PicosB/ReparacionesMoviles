@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="653.0" prefWidth="980.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8e8e8e" height="143.0" stroke="TRANSPARENT" strokeType="INSIDE" width="980.0" />
+      <Circle fill="#1f93ff" layoutX="108.0" layoutY="72.0" radius="62.0" stroke="BLACK" strokeType="INSIDE" />
+      <Rectangle arcHeight="40.0" arcWidth="40.0" fill="#d9d9d9" height="106.0" layoutX="292.0" layoutY="19.0" stroke="TRANSPARENT" strokeType="INSIDE" width="396.0">
+         <effect>
+            <DropShadow blurType="ONE_PASS_BOX">
+               <color>
+                  <Color opacity="0.0" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Rectangle>
+      <Text layoutX="329.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Panel Técnico">
+         <font>
+            <Font name="System Bold" size="50.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

@@ -5,11 +5,14 @@
 package com.mycompany.tecnicomovil.domain;
 
 import java.io.Serializable;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -30,21 +33,26 @@ public class Cliente implements Serializable {
     
     @Column (name = "numTelefonico")
     private String numTelefonico;
+    
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
+    private List<Servicio> servicios;
 
     public Cliente() {
     }
-    
-    public Cliente(String nombre, String numTelefonico) {
+
+    public Cliente(String nombre, String numTelefonico, List<Servicio> servicios) {
         this.nombre = nombre;
         this.numTelefonico = numTelefonico;
+        this.servicios = servicios;
     }
-
-    public Cliente(Long id, String nombre, String numTelefonico) {
+    
+    public Cliente(Long id, String nombre, String numTelefonico, List<Servicio> servicios) {
         this.id = id;
         this.nombre = nombre;
         this.numTelefonico = numTelefonico;
+        this.servicios = servicios;
     }
-
+    
     public Long getId() {
         return id;
     }

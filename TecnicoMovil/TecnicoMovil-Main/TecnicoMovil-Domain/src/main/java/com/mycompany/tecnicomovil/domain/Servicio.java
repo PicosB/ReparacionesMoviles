@@ -5,11 +5,15 @@
 package com.mycompany.tecnicomovil.domain;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -43,15 +47,17 @@ public class Servicio implements Serializable {
     @Column (name = "FechaTerminado")
     private LocalDateTime fechaTerminado;
     
-    @Column (name = "idCliente")
+    @ManyToOne
+    @JoinColumn(name = "idCliente")
     private Cliente cliente;
-    
-    @Column (name = "idTelefono")
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idTelefono", referencedColumnName = "idTelefono")
     private Telefono telefono;
 
     public Servicio() {
     }
-    
+
     public Servicio(String nombreServicio, String descripcion, ESTADO_SERVICIO estadoServicio, float precio, LocalDateTime fechaRegistro, LocalDateTime fechaTerminado, Cliente cliente, Telefono telefono) {
         this.nombreServicio = nombreServicio;
         this.descripcion = descripcion;
@@ -62,7 +68,7 @@ public class Servicio implements Serializable {
         this.cliente = cliente;
         this.telefono = telefono;
     }
-
+    
     public Servicio(Long id, String nombreServicio, String descripcion, ESTADO_SERVICIO estadoServicio, float precio, LocalDateTime fechaRegistro, LocalDateTime fechaTerminado, Cliente cliente, Telefono telefono) {
         this.id = id;
         this.nombreServicio = nombreServicio;
@@ -74,7 +80,7 @@ public class Servicio implements Serializable {
         this.cliente = cliente;
         this.telefono = telefono;
     }
-
+    
     public Long getId() {
         return id;
     }
