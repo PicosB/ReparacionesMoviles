@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.shape.Circle?>
@@ -8,23 +10,114 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="653.0" prefWidth="980.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8e8e8e" height="143.0" stroke="TRANSPARENT" strokeType="INSIDE" width="980.0" />
-      <Circle fill="#1f93ff" layoutX="108.0" layoutY="72.0" radius="62.0" stroke="BLACK" strokeType="INSIDE" />
-      <Rectangle arcHeight="40.0" arcWidth="40.0" fill="#d9d9d9" height="106.0" layoutX="292.0" layoutY="19.0" stroke="TRANSPARENT" strokeType="INSIDE" width="396.0">
-         <effect>
-            <DropShadow blurType="ONE_PASS_BOX">
-               <color>
-                  <Color opacity="0.0" />
-               </color>
-            </DropShadow>
-         </effect>
-      </Rectangle>
-      <Text layoutX="329.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Panel Técnico">
-         <font>
-            <Font name="System Bold" size="50.0" />
-         </font>
-      </Text>
-   </children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="702.0" prefWidth="1049.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainPageController">
+    <children>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8e8e8e" height="143.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1049.0" />
+        <Rectangle arcHeight="40.0" arcWidth="40.0" fill="#d9d9d9" height="106.0" layoutX="302.0" layoutY="19.0" stroke="TRANSPARENT" strokeType="INSIDE" width="396.0">
+            <effect>
+                <DropShadow blurType="ONE_PASS_BOX">
+                    <color>
+                        <Color opacity="0.0" />
+                    </color>
+                </DropShadow>
+            </effect>
+        </Rectangle>
+        <Text layoutX="339.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Panel Técnico">
+            <font>
+                <Font name="System Bold" size="50.0" />
+            </font>
+        </Text>
+        <Rectangle fx:id="btnGestionServicios" arcHeight="40.0" arcWidth="40.0" fill="#d9d9d9" height="255.0" layoutX="232.0" layoutY="158.0" onMouseClicked="#optionGestionServicios" stroke="TRANSPARENT" strokeType="INSIDE" width="262.0" />
+        <Rectangle fx:id="btnGananciasTotales" arcHeight="40.0" arcWidth="40.0" fill="#d9d9d9" height="255.0" layoutX="513.0" layoutY="158.0" onMouseClicked="#optionGananciasTotales" stroke="TRANSPARENT" strokeType="INSIDE" width="255.0" />
+        <Rectangle fx:id="btnClientes" arcHeight="40.0" arcWidth="40.0" fill="#d9d9d9" height="255.0" layoutX="373.0" layoutY="425.0" onMouseClicked="#optionVerClientes" stroke="TRANSPARENT" strokeType="INSIDE" width="255.0" />
+        <Text layoutX="250.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gestión de Servicios">
+            <font>
+                <Font name="System Bold" size="24.0" />
+            </font>
+        </Text>
+        <Circle fill="RED" layoutX="267.0" layoutY="251.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
+        <Circle fill="#27c400" layoutX="267.0" layoutY="320.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
+        <Circle fill="#ffe100" layoutX="267.0" layoutY="284.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
+        <Text layoutX="284.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Servicios Pendientes:" wrappingWidth="158.13671875">
+            <font>
+                <Font size="17.0" />
+            </font>
+        </Text>
+        <Text layoutX="284.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Servicios Realizados:" wrappingWidth="158.13671875">
+            <font>
+                <Font size="17.0" />
+            </font>
+        </Text>
+        <Text layoutX="284.0" layoutY="326.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Servicios Pagados:" wrappingWidth="140.13671875">
+            <font>
+                <Font size="17.0" />
+            </font>
+        </Text>
+        <Text fx:id="txtNPendientes" layoutX="443.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="###" wrappingWidth="36.13671875">
+            <font>
+                <Font size="17.0" />
+            </font>
+        </Text>
+        <Text fx:id="txtNRealizados" layoutX="443.0" layoutY="292.0" strokeType="OUTSIDE" strokeWidth="0.0" text="###" wrappingWidth="36.13671875">
+            <font>
+                <Font size="17.0" />
+            </font>
+        </Text>
+        <Text fx:id="txtNPagados" layoutX="425.0" layoutY="326.0" strokeType="OUTSIDE" strokeWidth="0.0" text="###" wrappingWidth="36.13671875">
+            <font>
+                <Font size="17.0" />
+            </font>
+        </Text>
+        <Text layoutX="540.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ganancias Totales">
+            <font>
+                <Font name="System Bold" size="24.0" />
+            </font>
+        </Text>
+        <Text layoutX="552.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Entradas Totales: $" wrappingWidth="140.13671875">
+            <font>
+                <Font size="17.0" />
+            </font>
+        </Text>
+        <Text layoutX="552.0" layoutY="292.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Salidas Totales: $" wrappingWidth="130.13671875">
+            <font>
+                <Font size="17.0" />
+            </font>
+        </Text>
+        <Text layoutX="552.0" layoutY="326.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ganancia neta: $" wrappingWidth="130.13671875">
+            <font>
+                <Font size="17.0" />
+            </font>
+        </Text>
+        <Text fx:id="txtEntradasTotales" layoutX="692.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="###" wrappingWidth="36.13671875">
+            <font>
+                <Font size="17.0" />
+            </font>
+        </Text>
+        <Text fx:id="txtSalidasTotales" layoutX="682.0" layoutY="292.0" strokeType="OUTSIDE" strokeWidth="0.0" text="###" wrappingWidth="36.13671875">
+            <font>
+                <Font size="17.0" />
+            </font>
+        </Text>
+        <Text fx:id="txtGananciaNeta" layoutX="678.0" layoutY="327.0" strokeType="OUTSIDE" strokeWidth="0.0" text="###" wrappingWidth="36.13671875">
+            <font>
+                <Font size="17.0" />
+            </font>
+        </Text>
+        <Text layoutX="412.0" layoutY="530.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gestión de Clientes Registrados" textAlignment="CENTER" wrappingWidth="177.41796875">
+            <font>
+                <Font name="System Bold" size="24.0" />
+            </font>
+        </Text>
+        <ImageView fitHeight="125.0" fitWidth="125.0" layoutX="84.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@/images/logoRC_1.jpg" />
+            </image>
+            <clip>
+                <Circle centerX="62.5" centerY="62.5" radius="62.5" />
+            </clip>
+            <effect>
+                <DropShadow radius="10" />
+            </effect>
+        </ImageView>
+    </children>
 </AnchorPane>

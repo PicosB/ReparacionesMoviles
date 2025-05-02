@@ -21,5 +21,18 @@
         <module>TecnicoMovil-GUI</module>
         <module>TecnicoMovil-Persistence</module>
     </modules>
-    
+    <dependencies>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-graphics</artifactId>
+            <version>24-ea+5</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>24-ea+5</version>
+            <type>jar</type>
+        </dependency>
+    </dependencies>
 </project>

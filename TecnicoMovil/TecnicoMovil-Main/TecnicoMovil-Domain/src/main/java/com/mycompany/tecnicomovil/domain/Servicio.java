@@ -32,14 +32,14 @@ public class Servicio implements Serializable {
     @Column (name = "NombreServicio")
     private String nombreServicio;
     
-    @Column (name = "Descripcion")
-    private String descripcion;
-    
     @Column (name = "EstadoServicio")
     private ESTADO_SERVICIO estadoServicio;
     
     @Column (name = "Precio")
     private float precio;
+    
+    @Column (name = "Invertido")
+    private float cantInvertido;
     
     @Column (name = "FechaRegistro")
     private LocalDateTime fechaRegistro;
@@ -58,29 +58,29 @@ public class Servicio implements Serializable {
     public Servicio() {
     }
 
-    public Servicio(String nombreServicio, String descripcion, ESTADO_SERVICIO estadoServicio, float precio, LocalDateTime fechaRegistro, LocalDateTime fechaTerminado, Cliente cliente, Telefono telefono) {
+    public Servicio(String nombreServicio, ESTADO_SERVICIO estadoServicio, float precio, float cantInvertido, LocalDateTime fechaRegistro, LocalDateTime fechaTerminado, Cliente cliente, Telefono telefono) {
         this.nombreServicio = nombreServicio;
-        this.descripcion = descripcion;
         this.estadoServicio = estadoServicio;
         this.precio = precio;
+        this.cantInvertido = cantInvertido;
         this.fechaRegistro = fechaRegistro;
         this.fechaTerminado = fechaTerminado;
         this.cliente = cliente;
         this.telefono = telefono;
     }
-    
-    public Servicio(Long id, String nombreServicio, String descripcion, ESTADO_SERVICIO estadoServicio, float precio, LocalDateTime fechaRegistro, LocalDateTime fechaTerminado, Cliente cliente, Telefono telefono) {
+
+    public Servicio(Long id, String nombreServicio, ESTADO_SERVICIO estadoServicio, float precio, float cantInvertido, LocalDateTime fechaRegistro, LocalDateTime fechaTerminado, Cliente cliente, Telefono telefono) {
         this.id = id;
         this.nombreServicio = nombreServicio;
-        this.descripcion = descripcion;
         this.estadoServicio = estadoServicio;
         this.precio = precio;
+        this.cantInvertido = cantInvertido;
         this.fechaRegistro = fechaRegistro;
         this.fechaTerminado = fechaTerminado;
         this.cliente = cliente;
         this.telefono = telefono;
     }
-    
+        
     public Long getId() {
         return id;
     }
@@ -95,14 +95,6 @@ public class Servicio implements Serializable {
 
     public void setNombreServicio(String nombreServicio) {
         this.nombreServicio = nombreServicio;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
     }
 
     public ESTADO_SERVICIO getEstadoServicio() {
@@ -152,6 +144,12 @@ public class Servicio implements Serializable {
     public void setTelefono(Telefono telefono) {
         this.telefono = telefono;
     }
-    
-    
+
+    public float getCantInvertido() {
+        return cantInvertido;
+    }
+
+    public void setCantInvertido(float cantInvertido) {
+        this.cantInvertido = cantInvertido;
+    }        
 }
