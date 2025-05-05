@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="154.0" prefWidth="892.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-radius: 20;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ServiceCardController">
+   <children>
+      <Text layoutX="15.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cliente - ">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Text>
+      <Text fx:id="txtNombreCliente" layoutX="117.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre del Cliente">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="15.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Número Telefónico - ">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Text>
+      <Text fx:id="txtNumeroTel" layoutX="255.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="6442130891">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="430.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Teléfono - ">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Text>
+      <Text fx:id="txtMarca" layoutX="553.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Samsung">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Text>
+      <Text fx:id="txtModelo" layoutX="662.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Samsung">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="433.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Servicio - ">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Text>
+      <Text fx:id="txtNombreServicio" layoutX="545.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre del Servicio">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Text>
+      <Circle fx:id="circuloEstado" fill="DODGERBLUE" layoutX="349.0" layoutY="126.0" radius="12.0" stroke="BLACK" strokeType="INSIDE" />
+      <Text fx:id="txtEstado" layoutX="367.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estado Servicio" wrappingWidth="172.56640625">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

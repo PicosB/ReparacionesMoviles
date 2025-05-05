@@ -27,7 +27,7 @@ public class ServicioJpaController implements Serializable {
     }
     
     public ServicioJpaController(){
-        emf = Persistence.createEntityManagerFactory("ConexionPU");
+        emf = Persistence.createEntityManagerFactory("conexionPU");
     }
     
     private EntityManagerFactory emf = null;
@@ -36,7 +36,7 @@ public class ServicioJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
-    public void create(Servicio servicio) {
+    public Servicio create(Servicio servicio) {
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -48,6 +48,7 @@ public class ServicioJpaController implements Serializable {
                 em.close();
             }
         }
+        return servicio;
     }
 
     public void edit(Servicio servicio) throws NonexistentEntityException, Exception {

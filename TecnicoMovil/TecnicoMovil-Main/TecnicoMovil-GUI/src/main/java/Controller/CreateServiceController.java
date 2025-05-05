@@ -4,8 +4,16 @@
  */
 package Controller;
 
+import business.CustomerBusiness;
+import business.PhoneBusiness;
+import business.ServiceBusiness;
+import com.mycompany.tecnicomovil.domain.Cliente;
+import com.mycompany.tecnicomovil.domain.ESTADO_SERVICIO;
+import com.mycompany.tecnicomovil.domain.Servicio;
+import com.mycompany.tecnicomovil.domain.Telefono;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -14,6 +22,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -47,6 +57,10 @@ public class CreateServiceController implements Initializable {
     private TextField txtDetalles;
     @FXML
     private Button btnCancelar;
+    
+    CustomerBusiness cusBusiness = new CustomerBusiness();
+    PhoneBusiness phoneBusiness = new PhoneBusiness();
+    ServiceBusiness serBusiness = new ServiceBusiness();
 
     /**
      * Initializes the controller class.
@@ -138,6 +152,35 @@ public class CreateServiceController implements Initializable {
 
     @FXML
     private void optionNuevoServicio(MouseEvent event) {
+        Cliente cliente = new Cliente();
+        cliente.setNombre(txtNombre.getText());
+        cliente.setNumTelefonico(txtNumTelefono.getText());
+        
+        Telefono telefono = new Telefono();
+        telefono.setMarca(txtMarca.getText());
+        telefono.setModelo(txtModelo.getText());
+        telefono.setImei(txtImei.getText());
+        telefono.setDetalles(txtDetalles.getText());
+        
+        Servicio servicio = new Servicio();
+        servicio.setNombreServicio(txtNombreServicio.getText());
+        servicio.setEstadoServicio(ESTADO_SERVICIO.Pendiente);
+        servicio.setPrecio(Float.parseFloat(txtPrecio.getText()));
+        servicio.setCantInvertido(0);
+        servicio.setFechaRegistro(LocalDateTime.now());
+        servicio.setFechaTerminado(null);
+        servicio.setCliente(cliente);
+        servicio.setTelefono(telefono);
+        
+        cusBusiness.crearCliente(cliente);
+        phoneBusiness.crearTelefono(telefono);
+        serBusiness.crearServicio(servicio);
+        
+        mostrarAlerta("Servicio registrado correctamente!");
+        
+        limpiarCampos();
+        
+        
     }
 
     @FXML
@@ -152,6 +195,25 @@ public class CreateServiceController implements Initializable {
         } catch (IOException ex) {
              Logger.getLogger(MainPageController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    private void mostrarAlerta(String mensaje) {
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Registro Exitoso");
+        alert.setHeaderText(null);
+        alert.setContentText(mensaje);
+        alert.showAndWait();
+    }
+    
+    private void limpiarCampos() {
+        txtNombre.clear();
+        txtNumTelefono.clear();
+        txtMarca.clear();
+        txtModelo.clear();
+        txtImei.clear();
+        txtDetalles.clear();
+        txtNombreServicio.clear();
+        txtPrecio.clear();
     }
     
 }

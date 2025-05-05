@@ -27,7 +27,7 @@ public class ClienteJpaController implements Serializable {
     }
     
     public ClienteJpaController(){
-        emf = Persistence.createEntityManagerFactory("ConexionPU");
+        emf = Persistence.createEntityManagerFactory("conexionPU");
     }
     
     private EntityManagerFactory emf = null;
@@ -36,7 +36,7 @@ public class ClienteJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
-    public void create(Cliente cliente) {
+    public Cliente create(Cliente cliente) {
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -48,6 +48,7 @@ public class ClienteJpaController implements Serializable {
                 em.close();
             }
         }
+        return cliente;
     }
 
     public void edit(Cliente cliente) throws NonexistentEntityException, Exception {

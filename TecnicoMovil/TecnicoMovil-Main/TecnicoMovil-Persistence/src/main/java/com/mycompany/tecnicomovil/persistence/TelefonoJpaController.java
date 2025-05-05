@@ -27,7 +27,7 @@ public class TelefonoJpaController implements Serializable {
     }
     
     public TelefonoJpaController(){
-        emf = Persistence.createEntityManagerFactory("ConexionPU");
+        emf = Persistence.createEntityManagerFactory("conexionPU");
     }
     
     private EntityManagerFactory emf = null;
@@ -36,7 +36,7 @@ public class TelefonoJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
-    public void create(Telefono telefono) {
+    public Telefono create(Telefono telefono) {
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -48,6 +48,7 @@ public class TelefonoJpaController implements Serializable {
                 em.close();
             }
         }
+        return telefono;
     }
 
     public void edit(Telefono telefono) throws NonexistentEntityException, Exception {
